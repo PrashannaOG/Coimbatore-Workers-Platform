@@ -1,0 +1,34 @@
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #000000;
+}
+
+#home {
+  background-color: #eff6ff;
+  color: #172554;
+  padding: 60px 8%;
+}
+
+#home h1 {
+  color: #172554;
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+#home p {
+  color: #475569;
+  margin-top: 30px;
+  font-size: 20px;
+}

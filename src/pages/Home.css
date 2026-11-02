@@ -1,0 +1,181 @@
+.home {
+    width: 100%;
+}
+
+.hero-section {
+    min-height: 620px;
+    padding: 90px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background: linear-gradient(120deg, #eff6ff, #ffffff);
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 9px 15px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-content h1 {
+    margin: 25px 0;
+    color: #172554;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.15;
+}
+
+.hero-content p {
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 550px;
+}
+
+.search-box {
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+.search-box input,
+.search-box select {
+    flex: 1;
+    min-width: 150px;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    outline: none;
+}
+
+.search-box button {
+    padding: 15px 22px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.hero-actions button {
+    padding: 14px 20px;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.worker-btn {
+    background: #1d4ed8;
+    color: white;
+    border: 1px solid #1d4ed8;
+}
+
+.employer-btn {
+    background: white;
+    color: #1d4ed8;
+    border: 1px solid #1d4ed8;
+}
+
+.hero-visual {
+    position: relative;
+    width: 350px;
+    min-width: 280px;
+}
+
+.visual-card {
+    padding: 45px 30px;
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(30, 64, 175, 0.12);
+}
+
+.visual-icon {
+    font-size: 85px;
+}
+
+.visual-card h3 {
+    color: #172554;
+    font-size: 22px;
+}
+
+.visual-card p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.floating-card {
+    position: absolute;
+    bottom: -25px;
+    left: 65px;
+    background: white;
+    padding: 17px 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.floating-card span {
+    color: #16a34a;
+    margin-right: 8px;
+}
+
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 65px 6%;
+    }
+
+    .hero-visual {
+        align-self: center;
+        width: min(100%, 350px);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 45px 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box input,
+    .search-box select,
+    .search-box button {
+        width: 100%;
+    }
+
+    .floating-card {
+        left: -10px;
+        font-size: 12px;
+    }
+}

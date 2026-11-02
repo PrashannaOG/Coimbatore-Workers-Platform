@@ -1,0 +1,122 @@
+
+.employer-register-page {
+  min-height: 75vh;
+  padding: 70px 20px;
+  background: #eff6ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.employer-register-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.employer-register-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.employer-register-heading h1 {
+  color: #172554;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.employer-register-heading p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.employer-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.employer-register-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.employer-register-form .form-group label {
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.employer-register-form .form-group input,
+.employer-register-form .form-group select,
+.employer-register-form .form-group textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  outline: none;
+  font-size: 14px;
+  background: white;
+  font-family: inherit;
+}
+
+.employer-register-form .form-group textarea {
+  resize: vertical;
+}
+
+.employer-register-form .form-group input:focus,
+.employer-register-form .form-group select:focus,
+.employer-register-form .form-group textarea:focus {
+  border-color: #2563eb;
+}
+
+.employer-terms-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #475569;
+  font-size: 13px;
+}
+
+.employer-register-submit {
+  padding: 14px;
+  border: none;
+  border-radius: 7px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.employer-register-submit:hover {
+  background: #1d4ed8;
+}
+
+.employer-register-login {
+  margin-top: 25px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.employer-register-login a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .employer-register-container {
+    padding: 28px 20px;
+  }
+
+  .employer-register-heading h1 {
+    font-size: 25px;
+  }
+}
