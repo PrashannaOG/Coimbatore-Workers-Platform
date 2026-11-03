@@ -5,7 +5,7 @@ import JobCategories from '../components/JobCategories'
 import FeaturedJobs from '../components/FeaturedJobs'
 import HowItWorks from '../components/HowItWorks'
 import WhyChooseUs from '../components/WhyChooseUs'
-import Footer from '../components/Footer'
+
 
 function Home() {
   return (
@@ -78,7 +78,6 @@ function Home() {
       <FeaturedJobs/>
       <HowItWorks/>
       <WhyChooseUs />
-      <Footer/>
 
     </main>
   )

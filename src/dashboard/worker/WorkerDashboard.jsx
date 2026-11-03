@@ -96,7 +96,7 @@ function WorkerDashboard() {
         <section className="worker-stats">
 
           <div className="worker-stat-card">
-            <span>Availabile Jobs📋</span>
+            <span>Available Jobs 📋</span>
             <h3>12</h3>
             <p>Available</p>
           </div>

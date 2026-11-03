@@ -1,3 +1,4 @@
+
 .login-page {
   min-height: 75vh;
   padding: 70px 20px;
@@ -143,6 +144,24 @@
 .login-register span {
   color: #94a3b8;
   font-size: 12px;
+}
+
+.form-error {
+  color: #dc2626;
+  background: #fef2f2;
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  margin: 0;
+}
+
+.form-success {
+  color: #15803d;
+  background: #f0fdf4;
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  margin: 0;
 }
 
 @media (max-width: 480px) {
