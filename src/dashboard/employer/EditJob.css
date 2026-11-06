@@ -1,0 +1,85 @@
+
+.edit-job-container {
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.edit-job-container h2 {
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.edit-job-container > p {
+    color: #666;
+    margin-bottom: 24px;
+}
+
+.edit-job-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.edit-job-container label {
+    font-weight: 600;
+    color: #333;
+    margin-top: 8px;
+}
+
+.edit-job-container input,
+.edit-job-container select,
+.edit-job-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.edit-job-container input:focus,
+.edit-job-container select:focus,
+.edit-job-container textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.edit-job-container textarea {
+    resize: vertical;
+}
+
+.edit-job-container button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.edit-job-container button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.edit-job-container button[type="button"] {
+    background: #6b7280;
+}
+
+.edit-job-container button:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.edit-job-container .error-message {
+    color: #dc2626;
+    font-weight: 500;
+    margin-bottom: 15px;
+}

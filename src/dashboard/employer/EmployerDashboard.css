@@ -1,0 +1,134 @@
+
+.employer-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.employer-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.employer-dashboard-header h1 {
+  margin: 0 0 8px;
+}
+
+.employer-dashboard-header p {
+  margin: 0;
+  color: #666;
+}
+
+.employer-home-btn,
+.employer-quick-actions a {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: #1769aa;
+  color: white;
+  font-weight: 600;
+}
+
+.employer-welcome-card {
+  padding: 28px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  background: #eef5ff;
+}
+
+.employer-welcome-card h2 {
+  margin-top: 0;
+}
+
+.employer-welcome-card p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.employer-dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.employer-stat-card,
+.employer-account-card {
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+}
+
+.employer-stat-card h3 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.employer-stat-card p {
+  margin: 12px 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.employer-stat-card span {
+  color: #777;
+  font-size: 13px;
+}
+
+.employer-account-card {
+  margin-bottom: 25px;
+}
+
+.employer-account-card h2,
+.employer-quick-actions h2 {
+  margin-top: 0;
+}
+
+.employer-account-card div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.employer-account-card div:last-child {
+  border-bottom: none;
+}
+
+.employer-account-card span {
+  color: #666;
+}
+
+.employer-quick-actions {
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.employer-quick-actions div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .employer-dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .employer-dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .employer-account-card div {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

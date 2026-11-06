@@ -17,6 +17,8 @@ function WorkerRegister() {
 
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [acceptedTerms, setAcceptedTerms] = useState(false)
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -30,10 +32,12 @@ function WorkerRegister() {
     setMessage('')
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
 
-    // Validate Indian mobile number
+    if (isLoading) return
+
+    // Validate Indian mobile number.
     const mobilePattern = /^[6-9]\d{9}$/
 
     if (!mobilePattern.test(formData.mobile)) {
@@ -41,24 +45,78 @@ function WorkerRegister() {
       return
     }
 
-    // Validate password matching
+    // Validate password matching.
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match. Please try again.')
       return
     }
 
-    // Frontend demonstration only
-    console.log('Worker Registration Data:', {
-      fullName: formData.fullName,
-      mobile: formData.mobile,
-      email: formData.email,
-      location: formData.location,
-      category: formData.category,
-      experience: formData.experience,
-    })
+    if (formData.password.length < 8) {
+      setError('Password must contain at least 8 characters.')
+      return
+    }
+
+    if (!acceptedTerms) {
+      setError('Please accept the Terms and Conditions.')
+      return
+    }
 
     setError('')
-    setMessage('Registration form validated successfully! Backend registration is not connected yet.')
+    setMessage('')
+    setIsLoading(true)
+
+    try {
+      const response = await fetch(
+        'http://127.0.0.1:5000/api/register/worker',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fullName: formData.fullName.trim(),
+            mobile: formData.mobile.trim(),
+            email: formData.email.trim(),
+            location: formData.location,
+            category: formData.category,
+            experience: formData.experience,
+            password: formData.password,
+            acceptedTerms: acceptedTerms,
+          }),
+        }
+      )
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Registration failed.')
+      }
+
+      setMessage(data.message)
+
+      // Clear the form after successful registration.
+      setFormData({
+        fullName: '',
+        mobile: '',
+        email: '',
+        location: '',
+        category: '',
+        experience: '',
+        password: '',
+        confirmPassword: '',
+      })
+
+      setAcceptedTerms(false)
+
+    } catch (error) {
+      if (error instanceof TypeError) {
+        setError('Unable to connect to the server. Please try again.')
+      } else {
+        setError(error.message || 'Something went wrong.')
+      }
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -200,7 +258,14 @@ function WorkerRegister() {
           </div>
 
           <label className="terms-label">
-            <input type="checkbox" required />
+            <input
+              type="checkbox"
+              checked={acceptedTerms}
+              onChange={(event) => {
+                setAcceptedTerms(event.target.checked)
+                setError('')
+              }}
+            />
             I agree to the Terms and Conditions.
           </label>
 
@@ -216,8 +281,12 @@ function WorkerRegister() {
             </p>
           )}
 
-          <button type="submit" className="register-submit">
-            Create Worker Account
+          <button
+            type="submit"
+            className="register-submit"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Creating Account...' : 'Create Worker Account'}
           </button>
 
         </form>

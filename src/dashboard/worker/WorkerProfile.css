@@ -1,0 +1,149 @@
+.worker-profile-page {
+  min-height: 80vh;
+  padding: 40px;
+  background: #f8fafc;
+}
+
+.worker-profile-header {
+  margin-bottom: 30px;
+}
+
+.worker-profile-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.worker-profile-header p {
+  color: #64748b;
+}
+
+.worker-profile-card {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.worker-profile-avatar {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.worker-profile-card > h2,
+.worker-profile-card > p {
+  text-align: center;
+}
+
+.worker-profile-card > p {
+  color: #64748b;
+  margin-top: 5px;
+}
+
+.worker-profile-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 35px 0;
+}
+
+.worker-profile-details div {
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.worker-profile-details span,
+.worker-profile-details strong {
+  display: block;
+}
+
+.worker-profile-details span {
+  margin-bottom: 7px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.worker-profile-details strong {
+  color: #1e293b;
+  font-size: 15px;
+}
+
+.worker-profile-back-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.worker-profile-back-btn:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 600px) {
+  .worker-profile-page {
+    padding: 20px;
+  }
+
+  .worker-profile-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+.worker-profile-details input {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  color: #1e293b;
+  box-sizing: border-box;
+}
+
+.worker-profile-details input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.worker-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.worker-profile-actions button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.worker-profile-actions button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.worker-profile-cancel-btn {
+  background: #64748b !important;
+}
+
+.worker-profile-edit-btn:hover {
+  background: #1d4ed8;
+}

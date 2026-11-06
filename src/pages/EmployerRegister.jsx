@@ -16,6 +16,8 @@ function EmployerRegister() {
     confirmPassword: '',
   })
 
+  const [acceptedTerms, setAcceptedTerms] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
 
@@ -31,7 +33,7 @@ function EmployerRegister() {
     setMessage('')
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
 
     const mobilePattern = /^[6-9]\d{9}$/
@@ -41,26 +43,80 @@ function EmployerRegister() {
       return
     }
 
+    if (formData.password.length < 8) {
+      setError('Password must contain at least 8 characters.')
+      return
+    }
+
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match. Please try again.')
       return
     }
 
-    // Frontend demonstration only
-    console.log('Employer Registration Data:', {
-      contactName: formData.contactName,
-      businessName: formData.businessName,
-      businessType: formData.businessType,
-      mobile: formData.mobile,
-      email: formData.email,
-      location: formData.location,
-      address: formData.address,
-    })
+    if (!acceptedTerms) {
+      setError('Please accept the Terms and Conditions.')
+      return
+    }
 
     setError('')
-    setMessage(
-      'Registration form validated successfully! Backend registration is not connected yet.'
-    )
+    setMessage('')
+    setIsLoading(true)
+
+    try {
+      const response = await fetch(
+        'http://127.0.0.1:5000/api/register/employer',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            contactName: formData.contactName.trim(),
+            businessName: formData.businessName.trim(),
+            businessType: formData.businessType,
+            mobile: formData.mobile.trim(),
+            email: formData.email.trim(),
+            location: formData.location,
+            address: formData.address.trim(),
+            password: formData.password,
+            acceptedTerms: acceptedTerms,
+          }),
+        }
+      )
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Registration failed.')
+      }
+
+      setMessage(result.message)
+
+      setFormData({
+        contactName: '',
+        businessName: '',
+        businessType: '',
+        mobile: '',
+        email: '',
+        location: '',
+        address: '',
+        password: '',
+        confirmPassword: '',
+      })
+
+      setAcceptedTerms(false)
+
+    } catch (err) {
+      if (err instanceof TypeError) {
+        setError(
+          'Unable to connect to the backend. Please make sure the Flask server is running.'
+        )
+      } else {
+        setError(err.message || 'Something went wrong. Please try again.')
+      }
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -212,7 +268,11 @@ function EmployerRegister() {
           </div>
 
           <label className="employer-terms-label">
-            <input type="checkbox" required />
+            <input
+              type="checkbox"
+              checked={acceptedTerms}
+              onChange={(event) => setAcceptedTerms(event.target.checked)}
+            />
             I agree to the Terms and Conditions.
           </label>
 
@@ -231,8 +291,9 @@ function EmployerRegister() {
           <button
             type="submit"
             className="employer-register-submit"
+            disabled={isLoading}
           >
-            Create Employer Account
+            {isLoading ? 'Creating Account...' : 'Create Employer Account'}
           </button>
 
         </form>
